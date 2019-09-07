@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChangeSpecificMovieActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="movie name - "
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/specificMovieName_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="movie rate - "
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/specificMovieRate_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="movie actors - "
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/specificMovieActors_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/specificMovieImageUrl_TV"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_gravity="center_horizontal" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="change name - "
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/changeSpecificMovieName_ET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="150sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="change rate - "
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/changeSpecificMovieRate_ET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="150sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="change actors - "
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/changeSpecificMovieActors_ET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="150sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="change image url - "
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/changeSpecificMovieImageUrl_ET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="150sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/changeSpecificMovie_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="change" />
+
+
+</LinearLayout>
