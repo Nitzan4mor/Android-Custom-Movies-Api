@@ -40,7 +40,7 @@ public class DeleteOnLongClickListener implements View.OnLongClickListener {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
                         Request request = new Request.Builder()
-                                .url(_url +"/"+ MainActivity.moviesList.get(_position).getName())
+                                .url(_url + "/" + MainActivity.moviesList.get(_position).getName())
                                 .delete()
                                 .build();
                         _client.newCall(request).enqueue(new Callback() {
@@ -51,6 +51,9 @@ public class DeleteOnLongClickListener implements View.OnLongClickListener {
 
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
+                                if (response.isSuccessful()){
+
+                                }
 
                             }
                         });
@@ -73,4 +76,5 @@ public class DeleteOnLongClickListener implements View.OnLongClickListener {
     public void quickToast(String message) {
         Toast.makeText(_AdapterForMovieView.get_context(), message, Toast.LENGTH_SHORT).show();
     }
+
 }

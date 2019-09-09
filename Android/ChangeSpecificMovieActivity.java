@@ -2,6 +2,7 @@ package com.example.a05_09nitzanmorexercise3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -52,7 +53,7 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
         final EditText changeSpecificMovieImageUrl_ET = findViewById(R.id.changeSpecificMovieImageUrl_ET);
 
         // change specific movie button - once clicked it will make sure the field are not empty
-        // and will send put request to the movie web service
+        // and will send put request to the movie web service, and return to Main Activity
         Button changeSpecificMovie_Btn = findViewById(R.id.changeSpecificMovie_Btn);
         changeSpecificMovie_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,8 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
                         changeSpecificMovieImageUrl_ET.getText().toString(),
                         movieOriginalName
                 );
+                startIntentToMainActivity();
+
             }
         });
     }
@@ -104,5 +107,10 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void startIntentToMainActivity(){
+        Intent intent = new Intent(ChangeSpecificMovieActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

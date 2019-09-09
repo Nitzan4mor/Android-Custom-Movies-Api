@@ -3,6 +3,7 @@ package com.example.a05_09nitzanmorexercise3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -40,7 +41,7 @@ public class AddNewMovieActivity extends AppCompatActivity {
         Button newMovieAdd_Btn = findViewById(R.id.newMovieAdd_Btn);
 
         // add new movie button - once clicked it will make sure the field are not empty
-        // and will send post request to the movie web service
+        // and will send post request to the movie web service, and return to Main Activity
         newMovieAdd_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,10 +58,12 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         , newMovieRate_ET.getText().toString()
                         , newMovieActors_ET.getText().toString()
                         , newMovieImageUrl_ET.getText().toString());
+
+                startIntentToMainActivity();
             }
         });
 
-        // lion king movie button - send post request to the web service to add new movie
+        // lion king movie button - send post request to the web service to add new movie and return to Main Activity
         Button addLionKingMovie_btn = findViewById(R.id.addLionKingMovie_btn);
         addLionKingMovie_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,10 +74,11 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         "Rowan Atkinson , Matthew Broderick , Niketa Calame-Harris",
                         "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX67_CR0,0,67,98_AL_.jpg"
                 );
+                startIntentToMainActivity();
             }
         });
 
-        // dumbo movie button - send post request to the web service to add new movie
+        // dumbo movie button - send post request to the web service to add new movie and return to Main Activity
         Button addDumboMovie_Btn = findViewById(R.id.addDumboMovie_Btn);
         addDumboMovie_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,10 +89,11 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         "Herman Bing, Billy Bletcher, Edward Brophy, Hall Johnson Choir",
                         "https://m.media-amazon.com/images/M/MV5BNWVmNWQ2OTQtNzJlNC00ZmQwLTg4ZTktZTNmM2IxZTlkOGM3L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX67_CR0,0,67,98_AL_.jpg"
                 );
+                startIntentToMainActivity();
             }
         });
 
-        // robin hood movie button - send post request to the web service to add new movie
+        // robin hood movie button - send post request to the web service to add new movie and return to Main Activity
         Button addRobinHoodMovie_Btn = findViewById(R.id.addRobinHoodMovie_Btn);
         addRobinHoodMovie_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +104,7 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         "Roger Miller, Peter Ustinov, Terry-Thomas, Brian Bedford",
                         "https://m.media-amazon.com/images/M/MV5BYjUwMzhkM2ItMTU2OC00OTQ5LWJlMDUtMzRmYjc0NDUyNGVhL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX67_CR0,0,67,98_AL_.jpg"
                 );
+                startIntentToMainActivity();
             }
         });
 
@@ -139,5 +145,12 @@ public class AddNewMovieActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    public void startIntentToMainActivity(){
+        Intent intent = new Intent(AddNewMovieActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
 
 }
