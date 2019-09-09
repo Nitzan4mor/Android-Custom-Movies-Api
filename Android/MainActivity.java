@@ -23,7 +23,8 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final String url = "http://10.0.2.2:8080/movies";
+
+    static final String url = "https://exercise-3-nitzan-mor.herokuapp.com/movies";
     static final OkHttpClient client = new OkHttpClient();
     static final ArrayList<MovieFromWebService> moviesList = new ArrayList<>();
     static AdapterForMovieView adapterForMovieView;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //connecting the list view to the Movie adapter
+        //connecting the list view to the MovieFromWebService adapter
         ListView movies_LV = findViewById(R.id.movies_LV);
         adapterForMovieView = new AdapterForMovieView(this, R.layout.movies_list_view_layout, moviesList);
         movies_LV.setAdapter(adapterForMovieView);
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         sendGetToWebService(adapterForMovieView);
+
     }
 
     // method that create new get request, send it to the web service
@@ -102,4 +104,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }
