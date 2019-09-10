@@ -2,7 +2,6 @@ package com.example.a05_09nitzanmorexercise3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -113,7 +111,7 @@ public class AddNewMovieActivity extends AppCompatActivity {
 
     // method that create request body using the method's parameters,
     // sending post request to the movie web service, and receiving call back
-    public static void postNewMovie(String name, String rate, String actors, String imageUrl) {
+    public void postNewMovie(String name, String rate, String actors, String imageUrl) {
         RequestBody body = RequestBody.create(JSON, "{\n" +
                 "\"name\": \"" + name + "\",\n" +
                 "\"rate\": \"" + rate + "\",\n" +

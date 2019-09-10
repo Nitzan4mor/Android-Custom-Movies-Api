@@ -15,13 +15,6 @@ import java.util.ArrayList;
 
 public class AdapterForMovieView extends ArrayAdapter {
 
-
-    public final static String MOVIE_NAME_INTENT_KEY = "AdapterForMovieView.MOVIE_NAME_INTENT_KEY";
-    public final static String MOVIE_RATE_INTENT_KEY = "AdapterForMovieView.MOVIE_RATE_INTENT_KEY";
-    public final static String MOVIE_ACTORS_INTENT_KEY = "AdapterForMovieView.MOVIE_ACTORS_INTENT_KEY";
-    public final static String MOVIE_IMAGE_URL_INTENT_KEY = "AdapterForMovieView.MOVIE_IMAGE_URL_INTENT_KEY";
-    public final static String MOVIE_INDEX_INTENT_KEY = "AdapterForMovieView.MOVIE_INDEX_INTENT_KEY";
-
     private Context _context;
     private int _layout;
     private ArrayList<MovieFromWebService> _movies;
@@ -66,11 +59,11 @@ public class AdapterForMovieView extends ArrayAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(_context, ChangeSpecificMovieActivity.class);
-                intent.putExtra(MOVIE_NAME_INTENT_KEY, _movies.get(position).getName());
-                intent.putExtra(MOVIE_RATE_INTENT_KEY, _movies.get(position).getRate());
-                intent.putExtra(MOVIE_ACTORS_INTENT_KEY, String.valueOf(_movies.get(position).getActors()));
-                intent.putExtra(MOVIE_IMAGE_URL_INTENT_KEY, String.valueOf(_movies.get(position).getImageUrl()));
-                intent.putExtra(MOVIE_INDEX_INTENT_KEY, position);
+                intent.putExtra(_context.getString(R.string.MOVIE_NAME_INTENT_KEY), _movies.get(position).getName());
+                intent.putExtra(_context.getString(R.string.MOVIE_RATE_INTENT_KEY), _movies.get(position).getRate());
+                intent.putExtra(_context.getString(R.string.MOVIE_ACTORS_INTENT_KEY), String.valueOf(_movies.get(position).getActors()));
+                intent.putExtra(_context.getString(R.string.MOVIE_IMAGE_URL_INTENT_KEY), String.valueOf(_movies.get(position).getImageUrl()));
+                intent.putExtra(_context.getString(R.string.MOVIE_INDEX_INTENT_KEY), position);
                 _context.startActivity(intent);
             }
         });

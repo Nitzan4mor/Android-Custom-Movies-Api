@@ -15,9 +15,9 @@ import okhttp3.Response;
 public class DeleteOnLongClickListener implements View.OnLongClickListener {
 
     private OkHttpClient _client = MainActivity.client;
-    private String _url = MainActivity.url;
     private int _position;
     private AdapterForMovieView _AdapterForMovieView;
+    private String _url = MainActivity.url;
 
     // C'tor
     public DeleteOnLongClickListener(AdapterForMovieView adapterForMovieView, int position) {

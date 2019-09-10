@@ -33,18 +33,18 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_change_specific_movie);
 
         // pulling data using intent extra for the original movie name
-        final String movieOriginalName = getIntent().getExtras().getString(AdapterForMovieView.MOVIE_NAME_INTENT_KEY);
+        final String movieOriginalName = getIntent().getExtras().getString(getString(R.string.MOVIE_NAME_INTENT_KEY));
 
         // defining all the text view and image view fields from the layout using their id
         // and setting their text/image using intent extra
         TextView specificMovieName_TV = findViewById(R.id.specificMovieName_TV);
         specificMovieName_TV.setText(movieOriginalName);
         TextView specificMovieRate_TV = findViewById(R.id.specificMovieRate_TV);
-        specificMovieRate_TV.setText(getIntent().getExtras().getString(AdapterForMovieView.MOVIE_RATE_INTENT_KEY));
+        specificMovieRate_TV.setText(getIntent().getExtras().getString(getString(R.string.MOVIE_RATE_INTENT_KEY)));
         TextView specificMovieActors_TV = findViewById(R.id.specificMovieActors_TV);
-        specificMovieActors_TV.setText(getIntent().getExtras().getString(AdapterForMovieView.MOVIE_ACTORS_INTENT_KEY));
+        specificMovieActors_TV.setText(getIntent().getExtras().getString(getString(R.string.MOVIE_ACTORS_INTENT_KEY)));
         ImageView specificMovieImageUrl_TV = findViewById(R.id.specificMovieImageUrl_TV);
-        Picasso.get().load(getIntent().getExtras().getString(AdapterForMovieView.MOVIE_IMAGE_URL_INTENT_KEY)).into(specificMovieImageUrl_TV);
+        Picasso.get().load(getIntent().getExtras().getString(getString(R.string.MOVIE_IMAGE_URL_INTENT_KEY))).into(specificMovieImageUrl_TV);
 
         // defining all the edit text fields from the layout using their id
         final EditText changeSpecificMovieName_ET = findViewById(R.id.changeSpecificMovieName_ET);
@@ -80,7 +80,7 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
 
     // method that create request body using the method's parameters,
     // sending put request to the movie web service, and receiving call back
-    public static void updateSpecificMovie(String name, String rate, String actors, String imageUrl, String movieOriginalName){
+    public  void updateSpecificMovie(String name, String rate, String actors, String imageUrl, String movieOriginalName){
         RequestBody body = RequestBody.create(AddNewMovieActivity.JSON, "{\n" +
                 "\"name\": \"" + name + "\",\n" +
                 "\"rate\": \"" + rate + "\",\n" +
