@@ -57,7 +57,6 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         , newMovieActors_ET.getText().toString()
                         , newMovieImageUrl_ET.getText().toString());
 
-                startIntentToMainActivity();
             }
         });
 
@@ -72,7 +71,6 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         "Rowan Atkinson , Matthew Broderick , Niketa Calame-Harris",
                         "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX67_CR0,0,67,98_AL_.jpg"
                 );
-                startIntentToMainActivity();
             }
         });
 
@@ -87,7 +85,6 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         "Herman Bing, Billy Bletcher, Edward Brophy, Hall Johnson Choir",
                         "https://m.media-amazon.com/images/M/MV5BNWVmNWQ2OTQtNzJlNC00ZmQwLTg4ZTktZTNmM2IxZTlkOGM3L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX67_CR0,0,67,98_AL_.jpg"
                 );
-                startIntentToMainActivity();
             }
         });
 
@@ -102,7 +99,7 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         "Roger Miller, Peter Ustinov, Terry-Thomas, Brian Bedford",
                         "https://m.media-amazon.com/images/M/MV5BYjUwMzhkM2ItMTU2OC00OTQ5LWJlMDUtMzRmYjc0NDUyNGVhL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX67_CR0,0,67,98_AL_.jpg"
                 );
-                startIntentToMainActivity();
+
             }
         });
 
@@ -124,10 +121,15 @@ public class AddNewMovieActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("===================", e.getMessage());
+                startIntentWithResult(RESULT_CANCELED);
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()){
+                    Log.i("================", "response was successful");
+                    startIntentWithResult(RESULT_OK);
+                }
 
             }
         });
@@ -147,6 +149,12 @@ public class AddNewMovieActivity extends AppCompatActivity {
     public void startIntentToMainActivity(){
         Intent intent = new Intent(AddNewMovieActivity.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void startIntentWithResult(int resultCode){
+        Intent intent = new Intent();
+        setResult(resultCode, intent);
+        finish();
     }
 
 

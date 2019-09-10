@@ -1,5 +1,6 @@
 package com.example.a05_09nitzanmorexercise3;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -46,13 +47,13 @@ public class DeleteOnLongClickListener implements View.OnLongClickListener {
                         _client.newCall(request).enqueue(new Callback() {
                             @Override
                             public void onFailure(Call call, IOException e) {
-                                quickToast("failed");
+                                Log.e("================", e.getMessage());
                             }
 
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
                                 if (response.isSuccessful()){
-
+                                    Log.i("================", "response was successful");
                                 }
 
                             }
