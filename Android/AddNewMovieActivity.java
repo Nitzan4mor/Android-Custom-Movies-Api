@@ -99,10 +99,50 @@ public class AddNewMovieActivity extends AppCompatActivity {
                         "Roger Miller, Peter Ustinov, Terry-Thomas, Brian Bedford",
                         "https://m.media-amazon.com/images/M/MV5BYjUwMzhkM2ItMTU2OC00OTQ5LWJlMDUtMzRmYjc0NDUyNGVhL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX67_CR0,0,67,98_AL_.jpg"
                 );
-
             }
         });
 
+        // jack reacher movie button - send post request to the web service to add new movie and return to Main Activity
+        Button addJackReacherMovie_btn = findViewById(R.id.addJackReacherMovie_btn);
+        addJackReacherMovie_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postNewMovie(
+                        "Jack Reacher",
+                        "70%",
+                        "Tom Cruise, Rosamund Pike, Richard Jenkins, David Oyelowo",
+                        "https://m.media-amazon.com/images/M/MV5BMTM1NjUxMDI3OV5BMl5BanBnXkFtZTcwNjg1ODM3OA@@._V1_UY98_CR0,0,67,98_AL_.jpg"
+                );
+            }
+        });
+
+        // Armageddon movie button - send post request to the web service to add new movie and return to Main Activity
+        Button addArmageddonMovie_Btn = findViewById(R.id.addArmageddonMovie_Btn);
+        addArmageddonMovie_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postNewMovie(
+                        "Armageddon",
+                        "67%",
+                        "Bruce Willis, Billy Bob Thornton, Ben Affleck , Liv Tyler",
+                        "https://m.media-amazon.com/images/M/MV5BMGM0NzE2YjgtZGQ4YS00MmY3LTg4ZDMtYjUwNTNiNTJhNTQ5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY98_CR0,0,67,98_AL_.jpg"
+                );
+            }
+        });
+
+        // Aladdin movie button - send post request to the web service to add new movie and return to Main Activity
+        Button addAladdinMovie_Btn = findViewById(R.id.addAladdinMovie_Btn);
+        addAladdinMovie_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postNewMovie(
+                        "Aladdin",
+                        "80%",
+                        "Scott Weinger, Robin Williams, Linda Larkin, Jonathan Freeman",
+                        "https://m.media-amazon.com/images/M/MV5BY2Q2NDI1MjUtM2Q5ZS00MTFlLWJiYWEtNTZmNjQ3OGJkZDgxXkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_UX67_CR0,0,67,98_AL_.jpg"
+                );
+            }
+        });
 
     }
 

@@ -26,8 +26,12 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    // url when using the web service connected to Heroku - not connected to data base
+//    static final String url = "https://exercise-3-nitzan-mor.herokuapp.com/movies";
 
-    static final String url = "https://exercise-3-nitzan-mor.herokuapp.com/movies";
+    // url when using web service in STS that connected to Sqlite
+    static final String url = "http://10.0.2.2:8080/movies";
+
     static final OkHttpClient client = new OkHttpClient();
     static final ArrayList<MovieFromWebService> moviesList = new ArrayList<>();
     static AdapterForMovieView adapterForMovieView;

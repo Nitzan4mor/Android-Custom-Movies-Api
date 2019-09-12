@@ -4,122 +4,159 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddNewMovieActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".AddNewMovieActivity">
 
     <TextView
-        android:textAlignment="center"
-        android:textSize="40sp"
-        android:text="add new movie"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="add new movie"
+        android:textAlignment="center"
+        android:textSize="40sp" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:text="movie name:"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="movie name:" />
 
         <EditText
             android:id="@+id/newMovieName_ET"
-            android:minWidth="150dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="150dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:text="movie rate:"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="movie rate:" />
 
         <EditText
             android:id="@+id/newMovieRate_ET"
-            android:minWidth="150dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="150dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:text="movie actors:"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="movie actors:" />
 
         <EditText
             android:id="@+id/newMovieActors_ET"
-            android:minWidth="150dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="150dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:text="movie imageUrl:"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="movie imageUrl:" />
 
         <EditText
             android:id="@+id/newMovieImageUrl_ET"
-            android:minWidth="150dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:minWidth="150dp" />
 
     </LinearLayout>
 
     <Button
-        android:layout_gravity="center_horizontal"
         android:id="@+id/newMovieAdd_Btn"
-        android:text="add"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="add" />
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20sp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/addLionKingMovie_btn"
-            android:text="add Lion King"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="add Lion King" />
 
         <Button
             android:id="@+id/addDumboMovie_Btn"
-            android:layout_marginLeft="15sp"
-            android:text="add Dumbo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/addRobinHoodMovie_Btn"
-            android:layout_marginLeft="15sp"
-            android:text="add Robin Hood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:text="add Dumbo" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20sp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/addRobinHoodMovie_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="add Robin Hood" />
+
+        <Button
+            android:id="@+id/addJackReacherMovie_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:text="add Jack Reacher" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20sp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/addArmageddonMovie_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="add Armageddon" />
+
+        <Button
+            android:id="@+id/addAladdinMovie_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25sp"
+            android:text="add Aladdin" />
+    </LinearLayout>
 
 </LinearLayout>
