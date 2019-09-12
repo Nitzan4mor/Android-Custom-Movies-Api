@@ -20,11 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyWebServices  {
 	
 	
-	// creating Movie list and adding few movies so it won't be empty
+	// creating empty Movie list 
 	static List<Movie> movies = new ArrayList<Movie>();
 	
 	
-	// when we receive GET request - return the movie list
+	// when we receive GET request - send select to the sqlite database 
+	// clear the Movie list and add the movies we received from the database to the Movie list
 	@RequestMapping( value = "/movies", method = RequestMethod.GET)
 	public List<Movie> doGetMovies(){
 		Connection connection = null;
@@ -52,7 +53,7 @@ public class MyWebServices  {
 	}
 	
 	// when we receive send POST request - take the request body and adjust it to Movie object
-	// and add it to the movie list
+	// and send insert request to the sqlite database
 	@RequestMapping( value = "/movies" , method = RequestMethod.POST)
 	public String doPostMovies(@RequestBody Movie movie) {
 		String result = "Failed to add new movie";
@@ -82,8 +83,7 @@ public class MyWebServices  {
 	
 	// when we receive PUT request - take the request body and adjust it to Movie object
 	// take the name parameter and adjust it to String
-	// iterate over the movie list, if there's a match -
-	// we will change the original movie fields to the new movie fields provided in the request
+	// send update request to the sqlite database
 	@RequestMapping( value = "/movies/{name}", method = RequestMethod.PUT)
 	public String doPutMovies(@RequestBody Movie movie, @PathVariable("name") String name)
 	{
@@ -114,7 +114,7 @@ public class MyWebServices  {
 	}
 
 	//when we receive DELETE request - take the name parameter and adjust it to String
-	//iterate over the movie list, if there a match than delete the movie from the list
+	//and send delete request to the sqlite database
 	@RequestMapping( value = "/movies/{name}", method = RequestMethod.DELETE)
 	public String doDeleteMovies(@PathVariable("name") String name)
 	{

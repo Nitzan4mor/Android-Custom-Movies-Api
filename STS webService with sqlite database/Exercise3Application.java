@@ -14,6 +14,7 @@ public class Exercise3Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Exercise3Application.class, args);
 		
+		// establish connection with the sqlite database and create new table
 		Connection connection = null;
 	      try{
 	        connection = DriverManager.getConnection("jdbc:sqlite:movies.db");
