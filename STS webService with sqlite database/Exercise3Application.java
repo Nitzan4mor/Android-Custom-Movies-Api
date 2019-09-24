@@ -1,4 +1,4 @@
-package com.example.demo;
+package nitzan.mor.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
