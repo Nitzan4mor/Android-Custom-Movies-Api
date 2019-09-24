@@ -1,4 +1,4 @@
-package com.example.a05_09nitzanmorexercise3;
+package com.Nitzan_Mor.a05_09nitzanmorexercise3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,21 +15,23 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import static com.example.a05_09nitzanmorexercise3.MainActivity.client;
-import static com.example.a05_09nitzanmorexercise3.MainActivity.url;
-
 public class AddNewMovieActivity extends AppCompatActivity {
 
-    static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private String url;
+    private final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private final OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_movie);
+
+        url = getString(R.string.URL);
 
         // defining all the fields from the layout using their id
         final EditText newMovieName_ET = findViewById(R.id.newMovieName_ET);
@@ -160,14 +162,14 @@ public class AddNewMovieActivity extends AppCompatActivity {
         client.newCall(postRequest).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("===================", e.getMessage());
+                Log.e("AddNewMovieActivity", e.getMessage());
                 startIntentWithResult(RESULT_CANCELED);
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()){
-                    Log.i("================", "response was successful");
+                    Log.i("AddNewMovieActivity", "response was successful");
                     startIntentWithResult(RESULT_OK);
                 }
 
@@ -196,7 +198,4 @@ public class AddNewMovieActivity extends AppCompatActivity {
         setResult(resultCode, intent);
         finish();
     }
-
-
-
 }

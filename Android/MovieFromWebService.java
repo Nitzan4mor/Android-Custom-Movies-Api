@@ -1,4 +1,4 @@
-package com.example.a05_09nitzanmorexercise3;
+package com.Nitzan_Mor.a05_09nitzanmorexercise3;
 
 //pojo class for turning rest web service to gson
 public class MovieFromWebService {
@@ -39,5 +39,15 @@ public class MovieFromWebService {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "MovieFromWebService{" +
+                "name='" + name + '\'' +
+                ", rate='" + rate + '\'' +
+                ", actors='" + actors + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
     }
 }

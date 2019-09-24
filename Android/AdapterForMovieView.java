@@ -1,4 +1,4 @@
-package com.example.a05_09nitzanmorexercise3;
+package com.Nitzan_Mor.a05_09nitzanmorexercise3;
 
 import android.content.Context;
 import android.content.Intent;
@@ -74,4 +74,10 @@ public class AdapterForMovieView extends ArrayAdapter {
     public Context get_context() {
         return _context;
     }
+
+    public ArrayList<MovieFromWebService> get_movies() {
+        return _movies;
+    }
+
+
 }

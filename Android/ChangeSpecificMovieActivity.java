@@ -1,4 +1,4 @@
-package com.example.a05_09nitzanmorexercise3;
+package com.Nitzan_Mor.a05_09nitzanmorexercise3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,33 +18,42 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import static com.example.a05_09nitzanmorexercise3.MainActivity.client;
-import static com.example.a05_09nitzanmorexercise3.MainActivity.url;
-
 public class ChangeSpecificMovieActivity extends AppCompatActivity {
+    private String url;
+    private final OkHttpClient client = new OkHttpClient();
+    private final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_specific_movie);
 
+        url = getString(R.string.URL);
+
         // pulling data using intent extra for the original movie name
-        final String movieOriginalName = getIntent().getExtras().getString(getString(R.string.MOVIE_NAME_INTENT_KEY));
+        final String movieOriginalName = getIntent().getExtras()
+                .getString(getString(R.string.MOVIE_NAME_INTENT_KEY));
 
         // defining all the text view and image view fields from the layout using their id
         // and setting their text/image using intent extra
         TextView specificMovieName_TV = findViewById(R.id.specificMovieName_TV);
         specificMovieName_TV.setText(movieOriginalName);
         TextView specificMovieRate_TV = findViewById(R.id.specificMovieRate_TV);
-        specificMovieRate_TV.setText(getIntent().getExtras().getString(getString(R.string.MOVIE_RATE_INTENT_KEY)));
+        specificMovieRate_TV.setText(getIntent().getExtras()
+                .getString(getString(R.string.MOVIE_RATE_INTENT_KEY)));
         TextView specificMovieActors_TV = findViewById(R.id.specificMovieActors_TV);
-        specificMovieActors_TV.setText(getIntent().getExtras().getString(getString(R.string.MOVIE_ACTORS_INTENT_KEY)));
+        specificMovieActors_TV.setText(getIntent().getExtras()
+                .getString(getString(R.string.MOVIE_ACTORS_INTENT_KEY)));
         ImageView specificMovieImageUrl_TV = findViewById(R.id.specificMovieImageUrl_TV);
-        Picasso.get().load(getIntent().getExtras().getString(getString(R.string.MOVIE_IMAGE_URL_INTENT_KEY))).into(specificMovieImageUrl_TV);
+        Picasso.get().load(getIntent().getExtras()
+                .getString(getString(R.string.MOVIE_IMAGE_URL_INTENT_KEY))).into(specificMovieImageUrl_TV);
 
         // defining all the edit text fields from the layout using their id
         final EditText changeSpecificMovieName_ET = findViewById(R.id.changeSpecificMovieName_ET);
@@ -72,7 +81,7 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
                         changeSpecificMovieImageUrl_ET.getText().toString(),
                         movieOriginalName
                 );
-                startIntentToMainActivity();
+                finish();
 
             }
         });
@@ -81,7 +90,7 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
     // method that create request body using the method's parameters,
     // sending put request to the movie web service, and receiving call back
     public  void updateSpecificMovie(String name, String rate, String actors, String imageUrl, String movieOriginalName){
-        RequestBody body = RequestBody.create(AddNewMovieActivity.JSON, "{\n" +
+        RequestBody body = RequestBody.create(JSON, "{\n" +
                 "\"name\": \"" + name + "\",\n" +
                 "\"rate\": \"" + rate + "\",\n" +
                 "\"actors\": \"" + actors + "\",\n" +
@@ -91,12 +100,12 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
         client.newCall(postRequest).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("================", e.getMessage());
+                Log.e("ChangeSpecificMovieActi", e.getMessage());
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()){
-                    Log.i("================", "response was successful");
+                    Log.i("ChangeSpecificMovieActi", "response was successful");
                 }
             }
         });
@@ -110,11 +119,6 @@ public class ChangeSpecificMovieActivity extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    public void startIntentToMainActivity(){
-        Intent intent = new Intent(ChangeSpecificMovieActivity.this, MainActivity.class);
-        startActivity(intent);
     }
 
 }

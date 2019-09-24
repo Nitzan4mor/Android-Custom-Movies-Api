@@ -5,4 +5,6 @@
     <string name="MOVIE_ACTORS_INTENT_KEY">MOVIE_ACTORS_INTENT_KEY</string>
     <string name="MOVIE_IMAGE_URL_INTENT_KEY">MOVIE_IMAGE_URL_INTENT_KEY</string>
     <string name="MOVIE_INDEX_INTENT_KEY">MOVIE_INDEX_INTENT_KEY</string>
+    <string name="URL">https://exercise-3-nitzan-mor.herokuapp.com/movies</string>
+    <string name="URL_LOCAL">http://10.0.2.2:8080/movies</string>
 </resources>

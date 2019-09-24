@@ -1,4 +1,4 @@
-package com.example.a05_09nitzanmorexercise3;
+package com.Nitzan_Mor.a05_09nitzanmorexercise3;
 
 import android.util.Log;
 import android.view.View;
@@ -15,15 +15,17 @@ import okhttp3.Response;
 
 public class DeleteOnLongClickListener implements View.OnLongClickListener {
 
-    private OkHttpClient _client = MainActivity.client;
+    private OkHttpClient _client;
     private int _position;
     private AdapterForMovieView _AdapterForMovieView;
-    private String _url = MainActivity.url;
+    private String _url;
 
     // C'tor
     public DeleteOnLongClickListener(AdapterForMovieView adapterForMovieView, int position) {
         _AdapterForMovieView = adapterForMovieView;
         _position = position;
+        _client = new OkHttpClient();
+        _url = _AdapterForMovieView.get_context().getString(R.string.URL);
     }
 
 
@@ -41,19 +43,19 @@ public class DeleteOnLongClickListener implements View.OnLongClickListener {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
                         Request request = new Request.Builder()
-                                .url(_url + "/" + MainActivity.moviesList.get(_position).getName())
+                                .url(_url + "/" + _AdapterForMovieView.get_movies().get(_position).getName())
                                 .delete()
                                 .build();
                         _client.newCall(request).enqueue(new Callback() {
                             @Override
                             public void onFailure(Call call, IOException e) {
-                                Log.e("================", e.getMessage());
+                                Log.e("DeleteOnLongClickListen", e.getMessage());
                             }
 
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
                                 if (response.isSuccessful()){
-                                    Log.i("================", "response was successful");
+                                    Log.i("DeleteOnLongClickListen", "response was successful");
                                 }
 
                             }

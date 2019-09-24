@@ -1,4 +1,4 @@
-package com.example.a05_09nitzanmorexercise3;
+package com.Nitzan_Mor.a05_09nitzanmorexercise3;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,20 +25,17 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    // url when using the web service connected to Heroku - not connected to data base
-//    static final String url = "https://exercise-3-nitzan-mor.herokuapp.com/movies";
-
-    // url when using web service in STS that connected to Sqlite
-    static final String url = "http://10.0.2.2:8080/movies";
-
-    static final OkHttpClient client = new OkHttpClient();
-    static final ArrayList<MovieFromWebService> moviesList = new ArrayList<>();
-    static AdapterForMovieView adapterForMovieView;
+    private String url;
+    private final OkHttpClient client = new OkHttpClient();
+    private final ArrayList<MovieFromWebService> moviesList = new ArrayList<>();
+    private static AdapterForMovieView adapterForMovieView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        url = getString(R.string.URL);
 
         //connecting the list view to the MovieFromWebService adapter
         ListView movies_LV = findViewById(R.id.movies_LV);
@@ -88,13 +84,13 @@ public class MainActivity extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("==================", e.getMessage());
+                Log.e("MainActivity", e.getMessage());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    Log.i("================", "response was successful");
+                    Log.i("MainActivity", "response was successful");
                     final String myResponse = response.body().string();
                     GsonBuilder gsonBuilder = new GsonBuilder();
                     Gson gson = gsonBuilder.create();
