@@ -1,4 +1,4 @@
-package package nitzan.mor.project;
+package nitzan.mor.project;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
