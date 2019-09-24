@@ -1,4 +1,4 @@
-package com.example.demo;
+package nitzan.mor.project;
 
 import java.io.Serializable;
 
@@ -64,10 +64,14 @@ public class Movie  implements Serializable {
 		this.actors = actors;
 	}
 	
-	
-	
-	
-	
-	
+	@Override
+    public String toString() {
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", rate='" + rate + '\'' +
+                ", actors='" + actors + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
+    }
 
 }
